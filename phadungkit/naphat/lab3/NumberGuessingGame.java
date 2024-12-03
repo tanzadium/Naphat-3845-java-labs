@@ -4,7 +4,7 @@ package phadungkit.naphat.lab3;
  * Author: Naphat Phadungkit
  * Student ID: 673040384-5
  * Sec: 1
- * Last updated date: 2 December 2024
+ * Last updated date: 3 December 2024
  */
 
 import java.util.*;
@@ -22,8 +22,7 @@ public class NumberGuessingGame {
         int range = (maxRange - minRange) + 1;
 
         int randomNumber = minRange + (int) (Math.random() * range);
-
-
+        System.out.println("The answe is " + randomNumber);
         
         while (true) {
             if (tried != 5) {
@@ -38,14 +37,14 @@ public class NumberGuessingGame {
                 } else if (readUserGuess == randomNumber) {
                     System.out.println("Congratulations!");
                     if (tried > 1) {
-                        System.out.println("You have tried " + tried + " times. " + "You ran out of guesses");
+                        System.out.println("You have tried " + tried + " times. ");
                     } else {
-                        System.out.println("You have tried " + tried + " time. " + "You ran out of guesses");
+                        System.out.println("You have tried " + tried + " time. ");
                     }
                     break;
                 }
             } else {
-                System.out.println("You have tried " + tried + " times");
+                System.out.println("You have tried " + tried + " times" + "You ran out of guesses");
                 break;
             }
 
