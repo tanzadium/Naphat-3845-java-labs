@@ -3,28 +3,36 @@ package phadungkit.naphat.lab3;
 import java.util.Scanner;
 
 /*
- * This program is a configurable number guessing game where the user
- * can set a minimum and maximum range of numbers and the maximum number 
- * of tries. The game generates a random number within the given range, 
- * and the user has to guess that number within the allowed attempts.
- *
+ * This program is a configurable number guessing game 
+ * where the user can define a minimum and maximum number range and a maximum number of tries. 
+ * The game generates a random number within the specified range and the user must guess 
+ * that number within the specified number of tries and when finished, 
+ * it asks the user again if they want to continue playing.
+ * 
  * Author: Naphat Phadungkit
  * Student ID: 673040384-5
  * Sec: 1
  * Last updated date: 8 December 2024
  */
-public class ConfigurableNumberGuessingGame {
+public class NumberGuessingGames {
 
+    // Declare variables so that all methods can access them.
     static int minRange, maxRange, maxTry, randomNumber;
 
     public static void main(String[] args) {
         Scanner getData = new Scanner(System.in); //Collect data from users via keyboard
-        minRange = minValue(getData);
-        maxRange = maxValue(getData);
-        maxTry = maxTry(getData);
-        randomNumber = randomNumber();
-        System.out.println("Welcome to a number guessing game!");
-        gamePlay(getData);
+
+        //It receives input data and passes it to methods to continue working 
+        //using do{} while(); to check the user's request to continue playing or not.
+        do {
+            minRange = minValue(getData);
+            maxRange = maxValue(getData);
+            maxTry = getMaxTry(getData);
+            randomNumber = getRandomNumber();
+            System.out.println("Welcome to a number guessing game!");
+            gamePlay(getData);
+            //If the condition is true, do{} is executed again; otherwise, the program is terminated.
+        } while (playAgain(getData));
     }
 
     private static int minValue(Scanner getData) {
@@ -42,38 +50,37 @@ public class ConfigurableNumberGuessingGame {
         while (true) {
             if (maxRange >= minRange) {
                 break;
-            } else if (maxRange < minRange) {
-                System.out.println("The max value must be at least equal to the min value");
-                System.out.print("Enter the max value:");
-                maxRange = getData.nextInt();
             }
+            System.out.println("The max value must be at least equal to the min value");
+            System.out.print("Enter the max value:");
+            maxRange = getData.nextInt();
         }
-        return maxRange;
+        return maxRange; //Returns a value to a class-level variable
     }
 
-    private static int maxTry(Scanner getData) {
+    private static int getMaxTry(Scanner getData) {
+        //This method takes the max try value from the user and returns it to a class variable.
         System.out.print("Enter the maximum of tries:");
-        maxTry = getData.nextInt();
+        int maxTry = getData.nextInt();
         //Create a loop to check if the maxTry value is greater than 0.
         while (true) {
             if (maxTry > 0) {
                 break;
-            } else if (maxTry <= 0) {
-                System.out.println("The maximum number of tries must be greater than 0");
-                System.out.print("Enter the maximum of tries:");
-                maxTry = getData.nextInt();
             }
+            System.out.println("The maximum number of tries must be greater than 0");
+            System.out.print("Enter the maximum of tries:");
+            maxTry = getData.nextInt();
         }
-        return maxTry;
+        return maxTry; //Returns a value to a class-level variable
     }
 
-    private static int randomNumber() {
+    private static int getRandomNumber() {
         /*This method generates the first random number using a range 
-         *from the min and max values ​​entered by the user.
+         *from the min and max values ​​entered by the user
          *and returns the value to a class variable.
          */
         int range = (maxRange - minRange) + 1;
-        randomNumber = minRange + (int) (Math.random() * (range));
+        int randomNumber = minRange + (int) (Math.random() * range);
         return randomNumber;
     }
 
@@ -92,6 +99,7 @@ public class ConfigurableNumberGuessingGame {
                 System.out.print("Enter an integer between " + minRange + " and " + maxRange + ":");
                 int userGuess = getData.nextInt();
                 tried += 1;
+                // Check if the player's guessed value is outside the specified range.
                 if (userGuess < minRange || userGuess > maxRange) {
                     System.out.println("The number must be between " + minRange + " and " + maxRange);
                     tried -= 1;
@@ -103,7 +111,7 @@ public class ConfigurableNumberGuessingGame {
                     System.out.println("Congratulations!");
                     if (tried == 1) {
                         System.out.println("You have tried " + tried + " time.");
-                    } else if (tried > 1 && tried < maxTry) {
+                    } else {
                         System.out.println("You have tried " + tried + " times.");
                     }
                     return;
@@ -114,5 +122,16 @@ public class ConfigurableNumberGuessingGame {
                 break;
             }
         }
+    }
+
+    private static boolean playAgain(Scanner getData) {
+        /*This method asks the player if they want to play again, 
+         *takes the value and compares it to Y , regardless of case, 
+         *and returns a class variable as true or false ,
+         *since boolean holds true and false .
+         */
+        System.out.print("Want to play again (Y or y):");
+        String userWant = getData.next();
+        return userWant.equalsIgnoreCase("Y");
     }
 }
