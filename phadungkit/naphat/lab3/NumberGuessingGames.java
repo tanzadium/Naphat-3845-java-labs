@@ -33,6 +33,7 @@ public class NumberGuessingGames {
             gamePlay(getData);
             //If the condition is true, do{} is executed again; otherwise, the program is terminated.
         } while (playAgain(getData));
+        System.out.println("Thank you for playing our games. Bye!");
     }
 
     private static int minValue(Scanner getData) {
