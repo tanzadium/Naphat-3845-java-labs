@@ -24,10 +24,10 @@ public class NumberGuessingGames {
 
         //It receives input data and passes it to methods to continue working 
         //using do{} while(); to check the user's request to continue playing or not.
+        minRange = minValue(getData);
+        maxRange = maxValue(getData);
+        maxTry = getMaxTry(getData);
         do {
-            minRange = minValue(getData);
-            maxRange = maxValue(getData);
-            maxTry = getMaxTry(getData);
             randomNumber = getRandomNumber();
             System.out.println("Welcome to a number guessing game!");
             gamePlay(getData);
