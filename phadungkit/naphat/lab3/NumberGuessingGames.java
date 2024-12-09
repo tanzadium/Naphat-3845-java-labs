@@ -12,7 +12,7 @@ import java.util.Scanner;
  * Author: Naphat Phadungkit
  * Student ID: 673040384-5
  * Sec: 1
- * Last updated date: 8 December 2024
+ * Last updated date: 9 December 2024
  */
 public class NumberGuessingGames {
 
@@ -118,9 +118,16 @@ public class NumberGuessingGames {
                     return;
                 }
             } else if (tried == maxTry) {
+                if(maxTry == 1){
+                System.out.println("You have tried " + tried + " time. " + "You ran out of guesses");
+                System.out.println("The Answer is " + randomNumber);
+                break;
+            } else {
                 System.out.println("You have tried " + tried + " times. " + "You ran out of guesses");
                 System.out.println("The Answer is " + randomNumber);
                 break;
+            }
+            
             }
         }
     }
