@@ -10,6 +10,12 @@ import java.util.Arrays;
  */
 public class NumberAnalyzer {
 
+    /**
+     * Finds the minimum and maximum values in an array of numbers.
+     *
+     * @param numbers an array of integers
+     * @return an array containing the minimum and maximum values
+     */
     public static int[] findMinMax(int[] numbers) {
         int[] arrayFindMinMax = numbers.clone();
         Arrays.sort(arrayFindMinMax);
@@ -18,6 +24,13 @@ public class NumberAnalyzer {
 
         return new int[]{min, max};
     }
+
+    /**
+ 	* Calculates the running average of numbers up to each position.
+ 	* For example: input [1,2,3] returns [1.0, 1.5, 2.0]
+ 	* @param numbers the input array
+ 	* @return array of running averages
+ 	*/
 
     public static double[] calculateRunningAverages(int[] numbers) {
         double currentSum = 0;
@@ -34,11 +47,14 @@ public class NumberAnalyzer {
 
     }
 
-    public static String printArrayWithCurlyBrace(int[] testingArray) {
-        String withCurly = Arrays.toString(testingArray);
-        withCurly = "{" + withCurly.substring(1, withCurly.length() - 1) + "}";
-        System.out.println(withCurly);
-        return withCurly;
+    public static void printArrayWithCurlyBrace(int[] testingArray) {
+        System.out.print("{");
+        for (int i = 0; i < testingArray.length; i++) {
+            System.out.print(testingArray[i] + ", ");
+        }
+        for (int i = testingArray.length - 2; i < testingArray.length-1; i++) {
+            System.out.print(testingArray.length - 1 + "}");
+        }
     }
 
     public static void printArray(int[] testingArray) {
@@ -46,6 +62,12 @@ public class NumberAnalyzer {
             System.out.print(testingArray[i] + " ");
         }
     }
+
+    /**
+ 	* Checks if the array is sorted in ascending order.
+ 	* @param numbers the array to check
+ 	* @return true if sorted, false otherwise
+ 	*/
 
     public static boolean isSorted(int[] numbers) {
         int[] unSort = numbers.clone();
@@ -59,7 +81,7 @@ public class NumberAnalyzer {
         int[] result = findMinMax(testingArray);
         System.out.print("Testing with array: ");
         printArrayWithCurlyBrace(testingArray);
-        System.out.println("Minimum value: " + result[0]);
+        System.out.println("\nMinimum value: " + result[0]);
         System.out.println("Maximum value: " + result[1] + "\n");
 
         System.out.println("Running averages:");
