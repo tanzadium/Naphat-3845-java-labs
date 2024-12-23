@@ -8,6 +8,10 @@ import java.util.Arrays;
  * calculate running averages, check if an array is sorted, 
  * and print arrays in different formats.
  *
+ * Author: Naphat Phadungkit
+ * Student ID: 673040384-5
+ * Sec: 1
+ * Last updated date: 24 December 2024 (00:02:46)
  * @author Naphat Phadungkit
  * @version 1.0
  */
