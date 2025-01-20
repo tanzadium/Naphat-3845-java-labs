@@ -90,37 +90,42 @@ public class NumberGuessingOOPGameV3 {
      */
     public void playGames() {
         boolean nextGame = true;
-
+    
         while (nextGame) {
-            // Play game if instance exists
+            // Play game
             if (game != null) {
                 game.playSingleGame();
-            }
-
-            // Display menu options
-            System.out.println("Do you want to:");
-            System.out.println("1. Play again");
-            System.out.println("2. View game records");
-            System.out.println("3. Quit");
-            
-            int choice = getData.nextInt();
-            
-            // Handle menu choice
-            switch (choice) {
-                case 1:
-                    configure();  // Start new game
-                    break;
-                case 2:
-                    viewRecords();  // Show game history
-                    break;
-                case 3:
-                    nextGame = false;  // End program
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+    
+                boolean validChoice = false;
+                while (!validChoice) {
+                    // Show menu
+                    System.out.println("Do you want to:");
+                    System.out.println("1. Play again");
+                    System.out.println("2. View game records");
+                    System.out.println("3. Quit");
+                    
+                    int choice = getData.nextInt();
+                    
+                    switch (choice) {
+                        case 1:
+                            configure();  // Get new settings for next game
+                            validChoice = true;  // Exit menu loop
+                            break;
+                        case 2:
+                            viewRecords();  // Show game history
+                            // Don't set validChoice, so menu shows again
+                            break;
+                        case 3:
+                            nextGame = false;  // End program
+                            validChoice = true;  // Exit menu loop
+                            break;
+                        default:
+                            System.out.println("Invalid choice. Please try again.");
+                    }
+                }
             }
         }
-
+    
         System.out.println("Thank you for playing Number Guessing Game V3!");
         getData.close();
     }

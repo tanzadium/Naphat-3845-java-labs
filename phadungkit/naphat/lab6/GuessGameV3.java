@@ -95,7 +95,7 @@ public class GuessGameV3 extends GuessGameV2 {
      */ 
     public String getGameLog() {
         // Create main game information string with configuration and results
-        String gameInfo = "Game Details: [Range: " + getMin() + "-" + getMax() + ", Max Tries: " + getMaxTries() + ", Attempts: " + guessCount + ", Result: " + (win ? "Win" : "Lose") + ", Guesses: ";
+        String gameInfo = "Range: [" + getMin() + "-" + getMax() + "], Max Tries: " + getMaxTries() + ", Attempts: " + guessCount + ", Result: " + (win ? "Win" : "Lose") + ", Guesses: ";
 
         // Create string of all guesses with comma separation
         String guessInfo = "";
@@ -107,7 +107,7 @@ public class GuessGameV3 extends GuessGameV2 {
         }
 
         // Combine both strings and add closing bracket
-        return gameInfo + guessInfo + "]";
+        return gameInfo + guessInfo;
     }
 
     /*
