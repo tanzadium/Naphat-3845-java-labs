@@ -21,7 +21,7 @@ public class NumberGuessingOOPGameV2 {
     public int minRange, maxRange, maxTry; 
 
     // Gets and validates game configuration from the player
-    public void configure() {
+    public void configureGame() {
 
         System.out.print("Enter the min value: ");
         minRange = getData.nextInt();
@@ -69,7 +69,7 @@ public class NumberGuessingOOPGameV2 {
             playAgain = getData.next().equalsIgnoreCase("y");
 
             if (playAgain) {
-                configure();  // Get new settings for next game
+                configureGame();  // Get new settings for next game
             }
         } while (playAgain);
 
@@ -79,7 +79,7 @@ public class NumberGuessingOOPGameV2 {
 
     public static void main(String[] args) {
         NumberGuessingOOPGameV2 program = new NumberGuessingOOPGameV2();
-        program.configure();  // Initial game configuration
+        program.configureGame();  // Initial game configuration
         program.playGames();  // Start game loop
     }
 }
