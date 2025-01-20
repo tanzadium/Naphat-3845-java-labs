@@ -14,10 +14,10 @@ public class GuessGameV3 extends GuessGameV2 {
 
     private static final int MAX_GAMES = 100;  // Maximum number of games that can be stored
     private static GuessGameV3[] gameRecords = new GuessGameV3[MAX_GAMES];  // Array to store game history
-    private static int recordIndex = 0;  // Tracks the current position in gameRecords array
+    private static int recordIndex = 0;  
     private int[] guesses;     // Array to store all guesses made in current game
-    private int guessCount;    // Number of valid guesses made in current game
-    private boolean win;       // Tracks if current game was won
+    private int guessCount;   
+    private boolean win;       
 
     public GuessGameV3() {
         super();  // Call GuessGameV2's default constructor

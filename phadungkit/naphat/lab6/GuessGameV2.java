@@ -56,16 +56,6 @@ public class GuessGameV2 extends GuessGame {
     /*
      * Implements the main game logic for a single game session
      * Overrides the parent class method to provide enhanced feedback and validation
-     * 
-     * Game flow:
-     * 1. Generate random number
-     * 2. Loop until win or max tries reached:
-     *    - Get player guess
-     *    - Validate input
-     *    - Provide feedback
-     *    - Track attempts
-     * 
-     * Returns: boolean - true if player wins, false if they run out of tries
      */
     @Override
     public boolean playSingleGame() {

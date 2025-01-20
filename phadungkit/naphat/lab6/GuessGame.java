@@ -15,11 +15,11 @@ import java.util.Scanner;
  */
 public class GuessGame {
 
-    private int minRange;    // Minimum value for number range
-    private int maxRange;    // Maximum value for number range
-    private int maxTry;      // Maximum allowed attempts per game
-    private int answer;      // The target number to be guessed
-    private int attempts;    // Current number of attempts made
+    private int minRange;    
+    private int maxRange;   
+    private int maxTry;     
+    private int answer;      
+    private int attempts;   
 
     //Default constructor that initializes the game with preset values:
     public GuessGame() {
@@ -102,7 +102,6 @@ public class GuessGame {
      * - Validates guesses
      * - Provides feedback
      * - Tracks attempts
-     * 
      */
     public boolean playSingleGame() {
         Scanner getData = new Scanner(System.in);
