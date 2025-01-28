@@ -19,7 +19,7 @@ public class MobileDeviceV2 extends MobileDeviceV1 {
     protected JPanel extraPanel;
     protected JComboBox osBox;
     protected JScrollPane scrollPane;
-    protected String[] osList = {"Android", "iOS", "Windows", "Others"};
+    protected String[] osList;
 
     // Main method to launch the enhanced mobile device form.
     public static void main(String[] args) {
@@ -42,21 +42,27 @@ public class MobileDeviceV2 extends MobileDeviceV1 {
         super(title);
     }
 
+    public void selectOS(){
+        osList = new String[]{"Android", "iOS", "Windows", "Others"};
+
+        deviceOS = new JLabel("Operating System:");
+        osBox = new JComboBox<>(osList);
+        osBox.setSelectedIndex(0);
+    }
+
     /**
      * Adds additional components including OS selection and feature description.
      * Extends the basic form with a new panel in the center.
      */
     @Override
     public void addComponents() {
-        super.addComponents();
         
-        deviceOS = new JLabel("Operating System:");
-        osBox = new JComboBox<>(osList);
-        osBox.setSelectedIndex(0);
+        super.addComponents();
 
+        selectOS();
+        
         deviceFeature = new JLabel("Feature:");
         inputFeature = new JTextArea(3,25);
-
         scrollPane = new JScrollPane(inputFeature);
 
         extraPanel = new JPanel();
@@ -67,5 +73,7 @@ public class MobileDeviceV2 extends MobileDeviceV1 {
         extraPanel.add(scrollPane);
 
         mainPanel.add(extraPanel, BorderLayout.CENTER);
+
+        setContentPane(mainPanel);
     }
 }

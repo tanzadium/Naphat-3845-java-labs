@@ -41,6 +41,25 @@ public class MobileDeviceV1 extends MySimpleWindow {
     public MobileDeviceV1(String title) {
         super(title);
     }
+
+    public void createFormPanel(){
+        formPanel = new JPanel();
+        formPanel.setLayout(new GridLayout(4,2));
+
+        typePanel = new JPanel();
+        typePanel.add(selectType1);
+        typePanel.add(selectType2);
+
+        formPanel.add(deviceName);
+        formPanel.add(inputName);
+        formPanel.add(deviceBrand);
+        formPanel.add(inputBrand);
+        formPanel.add(devicePrice);
+        formPanel.add(inputPrice);
+        formPanel.add(deviceType);
+
+        formPanel.add(typePanel);
+    }
     
     /**
      * Adds form components including labels, text fields, and radio buttons.
@@ -48,6 +67,7 @@ public class MobileDeviceV1 extends MySimpleWindow {
      */
     @Override
     public void addComponents() {
+        
         super.addComponents();
         deviceName = new JLabel("Device Name:");
         inputName = new JTextField(15);
@@ -56,34 +76,20 @@ public class MobileDeviceV1 extends MySimpleWindow {
         devicePrice = new JLabel("Price:");
         inputPrice = new JTextField(15);
         deviceType = new JLabel("Type:");
+        
         selectType1 = new JRadioButton("Smartphone", true);
         selectType2 = new JRadioButton("Tablet");
-
         typeGroup = new ButtonGroup();
         typeGroup.add(selectType1);
         typeGroup.add(selectType2);
 
-        formPanel = new JPanel();
-        formPanel.setLayout(new GridLayout(4,2));
-        formPanel.add(deviceName);
-        formPanel.add(inputName);
-        formPanel.add(deviceBrand);
-        formPanel.add(inputBrand);
-        formPanel.add(devicePrice);
-        formPanel.add(inputPrice);
-        formPanel.add(deviceType);
-        
-        typePanel = new JPanel();
-        typePanel.add(selectType1);
-        typePanel.add(selectType2);
-        
-        formPanel.add(typePanel);
+        createFormPanel();
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(formPanel, BorderLayout.NORTH);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
-        this.add(mainPanel);
+        setContentPane(mainPanel);
     }
 }

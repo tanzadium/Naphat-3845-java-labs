@@ -22,6 +22,7 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
     protected JMenuItem smallMenuItem, mediumMenuItem, largeMenuItem, extraLargeMenuItem;
     protected JMenuItem blackMenuItem, redMenuItem, greenMenuItem, blueMenuItem;
     protected JMenuItem font1MenuItem, font2MenuItem, font3MenuItem;
+    protected JMenuItem[] fileMenuItems,configSizeMenuItems,configColorMenuItems,configFontMenuItems;
 
     // Main method to launch the menu-enabled mobile device form.
     public static void main(String[] args) {
@@ -52,10 +53,10 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
         saveMenu = new JMenuItem("Save");
         exitMenu = new JMenuItem("Exit");
         
-        fileMenu.add(newMenu);
-        fileMenu.add(openMenu);
-        fileMenu.add(saveMenu);
-        fileMenu.add(exitMenu);
+        fileMenuItems = new JMenuItem[]{newMenu, openMenu, saveMenu, exitMenu};
+        for (JMenuItem itemMenu : fileMenuItems) {
+            fileMenu.add(itemMenu);
+        }
         
         menuBar.add(fileMenu);
     }
@@ -74,10 +75,10 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
         largeMenuItem = new JMenuItem("Large");
         extraLargeMenuItem = new JMenuItem("Extra Large");
         
-        sizeMenu.add(smallMenuItem);
-        sizeMenu.add(mediumMenuItem);
-        sizeMenu.add(largeMenuItem);
-        sizeMenu.add(extraLargeMenuItem);
+        configSizeMenuItems = new JMenuItem[]{smallMenuItem, mediumMenuItem, largeMenuItem, extraLargeMenuItem};
+        for (JMenuItem itemMenu : configSizeMenuItems) {
+            sizeMenu.add(itemMenu);
+        }
         
         configMenu.add(sizeMenu);
     }
@@ -90,10 +91,10 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
         greenMenuItem = new JMenuItem("Green");
         blueMenuItem = new JMenuItem("Blue");
         
-        colorMenu.add(blackMenuItem);
-        colorMenu.add(redMenuItem);
-        colorMenu.add(greenMenuItem);
-        colorMenu.add(blueMenuItem);
+        configColorMenuItems = new JMenuItem[]{blackMenuItem, redMenuItem, greenMenuItem, blueMenuItem};
+        for (JMenuItem itemMenu : configColorMenuItems) {
+            colorMenu.add(itemMenu);
+        }
         
         configMenu.add(colorMenu);
     }
@@ -105,9 +106,10 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
         font2MenuItem = new JMenuItem("Font 2");
         font3MenuItem = new JMenuItem("Font 3");
         
-        fontMenu.add(font1MenuItem);
-        fontMenu.add(font2MenuItem);
-        fontMenu.add(font3MenuItem);
+        configFontMenuItems = new JMenuItem[]{font1MenuItem, font2MenuItem, font3MenuItem};
+        for (JMenuItem itemMenu : configFontMenuItems) {
+            fontMenu.add(itemMenu);
+        }
         
         configMenu.add(fontMenu);
     }
