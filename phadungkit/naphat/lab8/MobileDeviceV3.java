@@ -46,7 +46,7 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
     }
 
     // Creates the File menu with New, Open, Save, and Exit options.
-    protected void createFileMenu() {
+    public void createFileMenu() {
         fileMenu = new JMenu("File");
         newMenu = new JMenuItem("New");
         openMenu = new JMenuItem("Open");
@@ -62,13 +62,13 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
     }
 
     // Creates the Config menu as a container for configuration submenus.
-    protected void createConfigMenu() {
+    public void createConfigMenu() {
         configMenu = new JMenu("Config");
         menuBar.add(configMenu);
     }
 
     // Creates the Size submenu with various size options.
-    protected void createConfigSizeMenu() {
+    public void createConfigSizeMenu() {
         sizeMenu = new JMenu("Size");
         smallMenuItem = new JMenuItem("Small");
         mediumMenuItem = new JMenuItem("Medium");
@@ -84,7 +84,7 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
     }
 
     // Creates the Color submenu with various color options.
-    protected void createConfigColorMenu() {
+    public void createConfigColorMenu() {
         colorMenu = new JMenu("Color");
         blackMenuItem = new JMenuItem("Black");
         redMenuItem = new JMenuItem("Red");
@@ -100,7 +100,7 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
     }
 
     // Creates the Font submenu with various font options.
-    protected void createConfigFontMenu() {
+    public void createConfigFontMenu() {
         fontMenu = new JMenu("Font");
         font1MenuItem = new JMenuItem("Font 1");
         font2MenuItem = new JMenuItem("Font 2");

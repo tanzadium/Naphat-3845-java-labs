@@ -51,8 +51,8 @@ public class SortMobileDevices implements Comparator<MobileDevice> {
         }
 
         if (device1.isWatch() && device2.isWatch()) {
-            AppleWatch watch1 = (AppleWatch) device1;
-            AppleWatch watch2 = (AppleWatch) device2;
+            AppleWatch watch1 = (AppleWatch) device1; // Type casting
+            AppleWatch watch2 = (AppleWatch) device2; // Type casting
 
             if (watch1.getModelName().equals(watch2.getModelName())) {
                 return watch1.getColor().compareTo(watch2.getColor());

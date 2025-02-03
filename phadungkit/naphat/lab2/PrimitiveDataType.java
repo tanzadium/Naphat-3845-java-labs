@@ -9,6 +9,17 @@ package phadungkit.naphat.lab2;
  */
 public class PrimitiveDataType {
 
+
+    /*Student ID : 673040384-5
+    First name : Naphat
+    Byte Value: 6
+    Short Value: 126
+    Int Value: 403845
+    Long Value: 6730403845
+    Float Value: 0.0
+    Double Value: 0.3845
+    Char Value: N
+    Boolean Value: true */
     public static void main(String[] args) {
 
         // Declare a string to hold the student number
