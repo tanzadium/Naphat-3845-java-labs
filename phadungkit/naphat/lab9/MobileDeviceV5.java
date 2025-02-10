@@ -129,6 +129,7 @@ public class MobileDeviceV5 extends MobileDeviceV4 {
 
     @Override
     public void addComponents() {
+        super.addComponents();
         crtMainPanel();
     }
 
