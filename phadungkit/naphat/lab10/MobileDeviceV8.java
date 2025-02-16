@@ -6,13 +6,14 @@ import javax.swing.*;
 import phadungkit.naphat.lab9.MobileDeviceV7;
 
 /**
- * This class extends MobileDeviceV7 and implements ActionListener to handle button events.
- * It adds functionality for creating message dialogs and handling form actions.
- * 
- * Author: Naphat Phadungkit
- * Student ID: 673040384-5
- * Sec: 1
- * Last updated date: 10 February 2025
+ * This class extends MobileDeviceV7 and implements ActionListener to handle
+ * button events. It adds functionality for creating message dialogs and
+ * handling form actions.
+ *
+ * Author: Naphat Phadungkit 
+ * Student ID: 673040384-5 
+ * Sec: 1 
+ * Last updated date: 17 February 2025
  */
 public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener {
 
@@ -33,7 +34,7 @@ public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener {
         MobileDeviceV8 mdv8 = new MobileDeviceV8("Mobile Device V8");
         mdv8.addComponents();
         mdv8.setFrameFeatures();
-        mdv8.addListener();
+        mdv8.addListeners();
     }
 
     // Constructs a new mobile device form with the specified title.
@@ -42,8 +43,8 @@ public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener {
     }
 
     /**
-     * Creates a message dialog containing all form information.
-     * Collects and formats all user input and selections for display.
+     * Creates a message dialog containing all form information. Collects and
+     * formats all user input and selections for display.
      */
     public void crtMessageDialog() {
         vendorSelectedMessage = String.join(", ", vendorList.getSelectedValuesList());
@@ -55,18 +56,17 @@ public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener {
     }
 
     /**
-     * Adds ActionListener to the form buttons.
-     * Sets up event handling for OK and Cancel buttons.
+     * Adds ActionListener to the form buttons. Sets up event handling for OK
+     * and Cancel buttons.
      */
-    public void addListener() {
+    public void addListeners() {
         cancelButton.addActionListener(this);
         okButton.addActionListener(this);
     }
 
     /**
-     * Handles button click events.
-     * - Cancel button clears all form fields
-     * - OK button displays the form information in a dialog
+     * Handles button click events. - Cancel button clears all form fields - OK
+     * button displays the form information in a dialog
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -82,7 +82,8 @@ public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener {
             vendorList.clearSelection();
             deviceRate.setValue(initialRate);
         } else if (src == okButton) {
-            JOptionPane.showMessageDialog(null, okMessage, "Device Information",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, okMessage,
+                    "Device Information", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }
