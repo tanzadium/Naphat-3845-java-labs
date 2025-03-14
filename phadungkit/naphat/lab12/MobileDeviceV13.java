@@ -51,11 +51,11 @@ public class MobileDeviceV13 extends MobileDeviceV12 {
     }
 
     public void handleAddButton() {
-        String name = inputName.getText();
-        String brand = inputBrand.getText();
+        String name = deviceNameTextField.getText();
+        String brand = deviceBrandTextField.getText();
 
         try {
-            double price = Double.parseDouble(inputPrice.getText());
+            double price = Double.parseDouble(devicePriceTextField.getText());
 
             MobileDevice device;
 
@@ -84,9 +84,9 @@ public class MobileDeviceV13 extends MobileDeviceV12 {
     }
 
     public void handleDisplayButton() {
-        
-        if(deviceList.isEmpty()){
-            JOptionPane.showMessageDialog(this,"Devices not added yet","Message",JOptionPane.INFORMATION_MESSAGE);
+
+        if (deviceList.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No devices have been added yet", "Message", JOptionPane.INFORMATION_MESSAGE);
         } else {
             String message = "";
 

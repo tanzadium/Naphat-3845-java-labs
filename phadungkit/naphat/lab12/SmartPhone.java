@@ -1,5 +1,6 @@
 package phadungkit.naphat.lab12;
 
+import java.io.Serializable;
 import phadungkit.naphat.lab7.MobileDevice;
 
 /**
@@ -7,21 +8,22 @@ import phadungkit.naphat.lab7.MobileDevice;
  * methods for the abstract MobileDevice class.
  *
  * Author: Naphat Phadungkit Student ID: 673040384-5 Sec: 1 Last updated date:
- * 10 March 2025
+ * 14 March 2025
  */
-public class SmartPhone extends MobileDevice {
+public class SmartPhone extends MobileDevice implements Serializable {
 
+    private static final long serialVersionUID = 1L; // Required for Serializable
     private static String type = "SmartPhone";
     private String name;
     private String brand;
-    
+
     public SmartPhone(String name, String brand, double price, String color) {
         this.name = name;
         this.brand = brand;
         setPrice(price);
         setColor(color);
     }
-  
+
     public SmartPhone(String name, String brand, double price) {
         this.name = name;
         this.brand = brand;

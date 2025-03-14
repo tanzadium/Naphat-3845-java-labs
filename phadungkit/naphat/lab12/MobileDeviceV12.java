@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 import phadungkit.naphat.lab10.MobileDeviceV11;
 
-public class MobileDeviceV12 extends MobileDeviceV11{
+public class MobileDeviceV12 extends MobileDeviceV11 {
 
     protected boolean textEmpty;
     protected String textInput;
@@ -37,12 +37,12 @@ public class MobileDeviceV12 extends MobileDeviceV11{
     @Override
     public void addComponents() {
         super.addComponents();
-        inputName.setName("Device Name");
-        inputBrand.setName("Brand");
-        inputPrice.setName("Price");
+        deviceNameTextField.setName("Device Name");
+        deviceBrandTextField.setName("Brand");
+        devicePriceTextField.setName("Price");
     }
 
-    public void handleNormalTextField(JTextField tf, JComponent nextComponent){
+    public void handleNormalTextField(JTextField tf, JComponent nextComponent) {
         textEmpty = tf.getText().isEmpty();
         textInput = tf.getText();
 
@@ -53,7 +53,7 @@ public class MobileDeviceV12 extends MobileDeviceV11{
             nextComponent.setEnabled(false);
         } else {
             nextComponent.setEnabled(true);
-            JOptionPane.showMessageDialog(this,tf.getName() + " is changed to " + textInput, "Message",
+            JOptionPane.showMessageDialog(this, tf.getName() + " is changed to " + textInput, "Message",
                     JOptionPane.INFORMATION_MESSAGE);
             nextComponent.requestFocusInWindow();
         }
@@ -72,7 +72,7 @@ public class MobileDeviceV12 extends MobileDeviceV11{
             try {
                 double price = Double.parseDouble(tf.getText());
                 if (price <= 0) {
-                    JOptionPane.showMessageDialog(this,tf.getName() + " must be a positive number", "Error",
+                    JOptionPane.showMessageDialog(this, tf.getName() + " must be a positive number", "Error",
                             JOptionPane.ERROR_MESSAGE);
                     tf.requestFocusInWindow();
                     nextComponent.setEnabled(false);
@@ -94,21 +94,21 @@ public class MobileDeviceV12 extends MobileDeviceV11{
     @Override
     public void addListeners() {
         super.addListeners();
-        inputName.addActionListener(this);
-        inputBrand.addActionListener(this);
-        inputPrice.addActionListener(this);
+        deviceNameTextField.addActionListener(this);
+        deviceBrandTextField.addActionListener(this);
+        devicePriceTextField.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
         Object srcObject = e.getSource();
-        if (srcObject == inputName) {
-            handleNormalTextField(inputName, inputBrand);
-        } else if (srcObject == inputBrand) {
-            handleNormalTextField(inputBrand, inputPrice);
-        } else if (srcObject == inputPrice) {
-            handlePosNumTextField(inputPrice, osBox);
+        if (srcObject == deviceNameTextField) {
+            handleNormalTextField(deviceNameTextField, deviceBrandTextField);
+        } else if (srcObject == deviceBrandTextField) {
+            handleNormalTextField(deviceBrandTextField, devicePriceTextField);
+        } else if (srcObject == devicePriceTextField) {
+            handlePosNumTextField(devicePriceTextField, osBox);
         }
     }
 
