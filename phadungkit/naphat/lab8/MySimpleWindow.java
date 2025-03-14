@@ -37,16 +37,25 @@ public class MySimpleWindow extends JFrame {
         super(title);
     }
 
-    // Adds the basic components (OK and Cancel buttons) to the window.
-    protected void addComponents() {
+    public void crtBtnPanel() {
         okButton = new JButton("OK");
         cancelButton = new JButton("Cancel");
-        mainPanel = new JPanel();
+        
         buttonPanel = new JPanel();
         buttonPanel.add(cancelButton);
         buttonPanel.add(okButton);
+    }
+
+    public void crtMainPanel(){
+        crtBtnPanel();
+        mainPanel = new JPanel();
         mainPanel.add(buttonPanel);
-        this.add(mainPanel);
+        setContentPane(mainPanel);
+    }
+
+    // Adds the basic components (OK and Cancel buttons) to the window.
+    protected void addComponents() {
+        crtMainPanel();
     }
 
     // Sets up the basic window features like size, location, and behavior.

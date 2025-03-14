@@ -22,7 +22,6 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
     protected JMenuItem smallMenuItem, mediumMenuItem, largeMenuItem, extraLargeMenuItem;
     protected JMenuItem blackMenuItem, redMenuItem, greenMenuItem, blueMenuItem;
     protected JMenuItem font1MenuItem, font2MenuItem, font3MenuItem;
-    protected JMenuItem[] fileMenuItems,configSizeMenuItems,configColorMenuItems,configFontMenuItems;
 
     // Main method to launch the menu-enabled mobile device form.
     public static void main(String[] args) {
@@ -46,72 +45,79 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
     }
 
     // Creates the File menu with New, Open, Save, and Exit options.
-    public void createFileMenu() {
+    protected void createFileMenu() {
         fileMenu = new JMenu("File");
         newMenu = new JMenuItem("New");
         openMenu = new JMenuItem("Open");
         saveMenu = new JMenuItem("Save");
         exitMenu = new JMenuItem("Exit");
         
-        fileMenuItems = new JMenuItem[]{newMenu, openMenu, saveMenu, exitMenu};
-        for (JMenuItem itemMenu : fileMenuItems) {
-            fileMenu.add(itemMenu);
-        }
+        fileMenu.add(newMenu);
+        fileMenu.add(openMenu);
+        fileMenu.add(saveMenu);
+        fileMenu.add(exitMenu);
         
         menuBar.add(fileMenu);
     }
 
     // Creates the Config menu as a container for configuration submenus.
-    public void createConfigMenu() {
+    protected void createConfigMenu() {
         configMenu = new JMenu("Config");
         menuBar.add(configMenu);
     }
 
     // Creates the Size submenu with various size options.
-    public void createConfigSizeMenu() {
+    protected void createConfigSizeMenu() {
         sizeMenu = new JMenu("Size");
         smallMenuItem = new JMenuItem("Small");
         mediumMenuItem = new JMenuItem("Medium");
         largeMenuItem = new JMenuItem("Large");
         extraLargeMenuItem = new JMenuItem("Extra Large");
         
-        configSizeMenuItems = new JMenuItem[]{smallMenuItem, mediumMenuItem, largeMenuItem, extraLargeMenuItem};
-        for (JMenuItem itemMenu : configSizeMenuItems) {
-            sizeMenu.add(itemMenu);
-        }
+        sizeMenu.add(smallMenuItem);
+        sizeMenu.add(mediumMenuItem);
+        sizeMenu.add(largeMenuItem);
+        sizeMenu.add(extraLargeMenuItem);
         
         configMenu.add(sizeMenu);
     }
 
     // Creates the Color submenu with various color options.
-    public void createConfigColorMenu() {
+    protected void createConfigColorMenu() {
         colorMenu = new JMenu("Color");
         blackMenuItem = new JMenuItem("Black");
         redMenuItem = new JMenuItem("Red");
         greenMenuItem = new JMenuItem("Green");
         blueMenuItem = new JMenuItem("Blue");
         
-        configColorMenuItems = new JMenuItem[]{blackMenuItem, redMenuItem, greenMenuItem, blueMenuItem};
-        for (JMenuItem itemMenu : configColorMenuItems) {
-            colorMenu.add(itemMenu);
-        }
+        colorMenu.add(blackMenuItem);
+        colorMenu.add(redMenuItem);
+        colorMenu.add(greenMenuItem);
+        colorMenu.add(blueMenuItem);
         
         configMenu.add(colorMenu);
     }
 
     // Creates the Font submenu with various font options.
-    public void createConfigFontMenu() {
+    protected void createConfigFontMenu() {
         fontMenu = new JMenu("Font");
         font1MenuItem = new JMenuItem("Font 1");
         font2MenuItem = new JMenuItem("Font 2");
         font3MenuItem = new JMenuItem("Font 3");
         
-        configFontMenuItems = new JMenuItem[]{font1MenuItem, font2MenuItem, font3MenuItem};
-        for (JMenuItem itemMenu : configFontMenuItems) {
-            fontMenu.add(itemMenu);
-        }
+        fontMenu.add(font1MenuItem);
+        fontMenu.add(font2MenuItem);
+        fontMenu.add(font3MenuItem);
         
         configMenu.add(fontMenu);
+    }
+
+    public void addMenus(){
+        createFileMenu();
+        createConfigMenu();
+        createConfigSizeMenu();
+        createConfigColorMenu();
+        createConfigFontMenu();
     }
 
     // Adds all menu components to the window and sets up the menu bar.
@@ -121,11 +127,7 @@ public class MobileDeviceV3 extends MobileDeviceV2 {
 
         menuBar = new JMenuBar();
         
-        createFileMenu();
-        createConfigMenu();
-        createConfigSizeMenu();
-        createConfigColorMenu();
-        createConfigFontMenu();
+        addMenus();
         
         this.setJMenuBar(menuBar);
     }

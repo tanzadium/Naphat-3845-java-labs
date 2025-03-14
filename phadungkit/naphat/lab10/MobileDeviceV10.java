@@ -31,8 +31,8 @@ public class MobileDeviceV10 extends MobileDeviceV9 implements ListSelectionList
         mdv10.addComponents();
         mdv10.setFrameFeatures();
         mdv10.addListeners();
-        mdv10.addListSelectionListener();
         mdv10.addChangeListener();
+        mdv10.addListSelectionListener();
     }
 
     // Constructs a new mobile device form with the specified title.

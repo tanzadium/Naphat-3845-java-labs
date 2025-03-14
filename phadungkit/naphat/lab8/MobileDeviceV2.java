@@ -4,18 +4,17 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * This class extends MobileDeviceV1 to add additional device information fields.
- * It adds operating system selection and a feature description text area.
- * 
- * Author: Naphat Phadungkit
- * Student ID: 673040384-5
- * Sec: 1
- * Last updated date: 27 January 2025
+ * This class extends MobileDeviceV1 to add additional device information
+ * fields. It adds operating system selection and a feature description text
+ * area.
+ *
+ * Author: Naphat Phadungkit Student ID: 673040384-5 Sec: 1 Last updated date:
+ * 27 January 2025
  */
 public class MobileDeviceV2 extends MobileDeviceV1 {
-    
+
     protected JLabel deviceOS, deviceFeature;
-    protected JTextArea inputFeature;
+    protected JTextArea deviceFeatureTextArea;
     protected JPanel extraPanel;
     protected JComboBox osBox;
     protected JScrollPane scrollPane;
@@ -42,7 +41,7 @@ public class MobileDeviceV2 extends MobileDeviceV1 {
         super(title);
     }
 
-    public void selectOS(){
+    public void selectOS() {
         osList = new String[]{"Android", "iOS", "Windows", "Others"};
 
         deviceOS = new JLabel("Operating System:");
@@ -50,30 +49,38 @@ public class MobileDeviceV2 extends MobileDeviceV1 {
         osBox.setSelectedIndex(0);
     }
 
-    /**
-     * Adds additional components including OS selection and feature description.
-     * Extends the basic form with a new panel in the center.
-     */
-    @Override
-    public void addComponents() {
-        
-        super.addComponents();
-
+    public void crtExtraPanel() {
         selectOS();
-        
+
         deviceFeature = new JLabel("Feature:");
-        inputFeature = new JTextArea(3,25);
-        scrollPane = new JScrollPane(inputFeature);
+        deviceFeatureTextArea = new JTextArea(3, 25);
+        scrollPane = new JScrollPane(deviceFeatureTextArea);
 
         extraPanel = new JPanel();
-        extraPanel.setLayout(new GridLayout(2,3));
+        extraPanel.setLayout(new GridLayout(2, 3));
         extraPanel.add(deviceOS);
         extraPanel.add(osBox);
         extraPanel.add(deviceFeature);
         extraPanel.add(scrollPane);
+    }
 
+    @Override
+    public void crtMainPanel() {
+        super.crtMainPanel();
+        crtExtraPanel();
         mainPanel.add(extraPanel, BorderLayout.CENTER);
-
         setContentPane(mainPanel);
+    }
+
+    /**
+     * Adds additional components including OS selection and feature
+     * description. Extends the basic form with a new panel in the center.
+     */
+    @Override
+    public void addComponents() {
+
+        crtExtraPanel();
+        crtMainPanel();
+
     }
 }

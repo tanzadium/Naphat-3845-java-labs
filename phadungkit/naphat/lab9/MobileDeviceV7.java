@@ -8,10 +8,8 @@ import java.awt.*;
  * introduces a panel for reading and displaying an image of a mobile device,
  * enhancing the form with a visual representation of the selected device.
  *
- * Author: Naphat Phadungkit 
- * Student ID: 673040384-5 
- * Sec: 1 
- * Last updated date: 10 February 2025
+ * Author: Naphat Phadungkit Student ID: 673040384-5 Sec: 1 Last updated date:
+ * 10 February 2025
  */
 public class MobileDeviceV7 extends MobileDeviceV6 {
 
@@ -41,15 +39,15 @@ public class MobileDeviceV7 extends MobileDeviceV6 {
 
     // Sets form data with predefined device information.
     public void setFormData() {
-        inputName.setText("Samsung Galaxy S25 Ultra");
-        inputBrand.setText("Samsung");
-        inputPrice.setText("46,900");
+        deviceNameTextField.setText("Samsung Galaxy S25 Ultra");
+        deviceBrandTextField.setText("Samsung");
+        devicePriceTextField.setText("46900");
         selectTypeSmartPhone.setSelected(true);
 
         osBox.setSelectedItem("Android");
 
         String samsungS25Features = "- 200MP Camera\n" + "- 1TB Storage\n" + "- Snapdragon Gen 4 Processor\n" + "- 5000mAh Battery\n" + "- 6.8-inch AMOLED Display\n" + "- 120Hz Refresh Rate\n" + "- Fast Charging";
-        inputFeature.setText(samsungS25Features);
+        deviceFeatureTextArea.setText(samsungS25Features);
 
         vendorList.setSelectedValue("AIS", true);
 

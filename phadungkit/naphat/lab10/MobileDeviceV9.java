@@ -10,10 +10,8 @@ import javax.swing.*;
  * formatting functionality. It includes features for file operations (new,
  * open, save), and text customization (font size, color, and style).
  *
- * Author: Naphat Phadungkit 
- * Student ID: 673040384-5 
- * Sec: 1 
- * Last updated date: 17 February 2025
+ * Author: Naphat Phadungkit Student ID: 673040384-5 Sec: 1 Last updated date:
+ * 17 February 2025
  */
 public class MobileDeviceV9 extends MobileDeviceV8 {
 
@@ -22,6 +20,7 @@ public class MobileDeviceV9 extends MobileDeviceV8 {
     protected JTextArea log;
     protected JScrollPane logScrollPane;
     protected JPanel newMainPanel;
+    protected int returnVal;
 
     // Main method to launch the mobile device form.
     public static void main(String[] args) {
@@ -55,10 +54,10 @@ public class MobileDeviceV9 extends MobileDeviceV8 {
      * menu.
      */
     public void chooseNewFileMenu() {
-        inputName.setText("");
-        inputBrand.setText("");
-        inputPrice.setText("");
-        inputFeature.setText("");
+        deviceNameTextField.setText("");
+        deviceBrandTextField.setText("");
+        devicePriceTextField.setText("");
+        deviceFeatureTextArea.setText("");
         osBox.setSelectedIndex(0);
         selectTypeSmartPhone.setSelected(true);
         vendorList.clearSelection();
@@ -70,7 +69,7 @@ public class MobileDeviceV9 extends MobileDeviceV8 {
      * message.
      */
     public void chooseOpenFileMenu() {
-        int returnVal = fc.showOpenDialog(this);
+        returnVal = fc.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File openFile = fc.getSelectedFile();
             JOptionPane.showMessageDialog(this, "Opening: " + openFile.getName(),
@@ -82,7 +81,7 @@ public class MobileDeviceV9 extends MobileDeviceV8 {
      * Displays file chooser dialog for saving files and shows success message.
      */
     public void chooseSaveFileMenu() {
-        int returnVal = fc.showSaveDialog(this);
+        returnVal = fc.showSaveDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File saveFile = fc.getSelectedFile();
             JOptionPane.showMessageDialog(this, "Data is saved to "
@@ -102,31 +101,31 @@ public class MobileDeviceV9 extends MobileDeviceV8 {
      * Changes the font size of all text input fields.
      */
     public void changeFontSize(int size) {
-        Font newFont = new Font(inputName.getFont().getFontName(), Font.PLAIN, size);
-        inputName.setFont(newFont);
-        inputBrand.setFont(newFont);
-        inputPrice.setFont(newFont);
-        inputFeature.setFont(newFont);
+        Font newFont = new Font(deviceNameTextField.getFont().getFontName(), Font.PLAIN, size);
+        deviceNameTextField.setFont(newFont);
+        deviceBrandTextField.setFont(newFont);
+        devicePriceTextField.setFont(newFont);
+        deviceFeatureTextArea.setFont(newFont);
     }
 
     /**
      * Changes the text color of all input fields.
      */
     public void changeFontColor(Color color) {
-        inputName.setForeground(color);
-        inputBrand.setForeground(color);
-        inputPrice.setForeground(color);
-        inputFeature.setForeground(color);
+        deviceNameTextField.setForeground(color);
+        deviceBrandTextField.setForeground(color);
+        devicePriceTextField.setForeground(color);
+        deviceFeatureTextArea.setForeground(color);
     }
 
     /**
      * Changes the font style of all input fields.
      */
     public void changeFontStyle(Font font) {
-        inputName.setFont(font);
-        inputBrand.setFont(font);
-        inputPrice.setFont(font);
-        inputFeature.setFont(font);
+        deviceNameTextField.setFont(font);
+        deviceBrandTextField.setFont(font);
+        devicePriceTextField.setFont(font);
+        deviceFeatureTextArea.setFont(font);
     }
 
     /**
@@ -190,11 +189,11 @@ public class MobileDeviceV9 extends MobileDeviceV8 {
         } else if (src == blueMenuItem) {
             changeFontColor(Color.BLUE);
         } else if (src == font1MenuItem) {
-            changeFontStyle(new Font("Serif", Font.PLAIN, inputName.getFont().getSize()));
+            changeFontStyle(new Font("Serif", Font.PLAIN, deviceNameTextField.getFont().getSize()));
         } else if (src == font2MenuItem) {
-            changeFontStyle(new Font("SansSerif", Font.PLAIN, inputName.getFont().getSize()));
+            changeFontStyle(new Font("SansSerif", Font.PLAIN, deviceNameTextField.getFont().getSize()));
         } else if (src == font3MenuItem) {
-            changeFontStyle(new Font("Monospaced", Font.PLAIN, inputName.getFont().getSize()));
+            changeFontStyle(new Font("Monospaced", Font.PLAIN, deviceNameTextField.getFont().getSize()));
         }
     }
 }

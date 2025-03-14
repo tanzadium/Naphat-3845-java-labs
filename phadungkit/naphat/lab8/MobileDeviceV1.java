@@ -1,23 +1,21 @@
 package phadungkit.naphat.lab8;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import javax.swing.*;
 
 /**
- * This class extends MySimpleWindow to create a form for mobile device information.
- * It includes fields for device name, brand, price, and device type selection.
- * 
- * Author: Naphat Phadungkit
- * Student ID: 673040384-5
- * Sec: 1
- * Last updated date: 27 January 2025
+ * This class extends MySimpleWindow to create a form for mobile device
+ * information. It includes fields for device name, brand, price, and device
+ * type selection.
+ *
+ * Author: Naphat Phadungkit Student ID: 673040384-5 Sec: 1 Last updated date:
+ * 27 January 2025
  */
 public class MobileDeviceV1 extends MySimpleWindow {
 
-    protected JLabel deviceName, deviceBrand, devicePrice, deviceType;
-    protected JTextField inputName, inputBrand, inputPrice;
-    protected JRadioButton selectType1, selectType2;
+    protected JLabel deviceNameLabel, deviceBrandLabel, devicePriceLabel, deviceTypeLabel;
+    protected JTextField deviceNameTextField, deviceBrandTextField, devicePriceTextField;
+    protected JRadioButton selectTypeSmartPhone, selectTypeTablet;
     protected JPanel formPanel, typePanel;
     protected ButtonGroup typeGroup;
 
@@ -42,54 +40,68 @@ public class MobileDeviceV1 extends MySimpleWindow {
         super(title);
     }
 
-    public void createFormPanel(){
+    public void crtBtnGroup() {
+        selectTypeSmartPhone = new JRadioButton("Smartphone", true);
+        selectTypeTablet = new JRadioButton("Tablet");
+        typeGroup = new ButtonGroup();
+        typeGroup.add(selectTypeSmartPhone);
+        typeGroup.add(selectTypeTablet);
+    }
+
+    public void crtFormPanel() {
+        deviceNameLabel = new JLabel("Device Name:");
+        deviceNameTextField = new JTextField(15);
+        deviceBrandLabel = new JLabel("Brand:");
+        deviceBrandTextField = new JTextField(15);
+        devicePriceLabel = new JLabel("Price:");
+        devicePriceTextField = new JTextField(15);
+        deviceTypeLabel = new JLabel("Type:");
+
+        crtBtnGroup();
+
         formPanel = new JPanel();
-        formPanel.setLayout(new GridLayout(4,2));
+        formPanel.setLayout(new GridLayout(4, 2));
 
         typePanel = new JPanel();
-        typePanel.add(selectType1);
-        typePanel.add(selectType2);
+        typePanel.add(selectTypeSmartPhone);
+        typePanel.add(selectTypeTablet);
 
-        formPanel.add(deviceName);
-        formPanel.add(inputName);
-        formPanel.add(deviceBrand);
-        formPanel.add(inputBrand);
-        formPanel.add(devicePrice);
-        formPanel.add(inputPrice);
-        formPanel.add(deviceType);
+        formPanel.add(deviceNameLabel);
+        formPanel.add(deviceNameTextField);
+        formPanel.add(deviceBrandLabel);
+        formPanel.add(deviceBrandTextField);
+        formPanel.add(devicePriceLabel);
+        formPanel.add(devicePriceTextField);
+        formPanel.add(deviceTypeLabel);
 
         formPanel.add(typePanel);
+
     }
-    
+
+    @Override
+    public void crtMainPanel() {
+        crtFormPanel();
+        crtBtnPanel();
+
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        mainPanel.add(formPanel, BorderLayout.NORTH);
+        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+        setContentPane(mainPanel);
+    }
+
     /**
      * Adds form components including labels, text fields, and radio buttons.
      * Organizes components using GridLayout and BorderLayout.
      */
     @Override
     public void addComponents() {
-        
+
         super.addComponents();
-        deviceName = new JLabel("Device Name:");
-        inputName = new JTextField(15);
-        deviceBrand = new JLabel("Brand:");
-        inputBrand = new JTextField(15);
-        devicePrice = new JLabel("Price:");
-        inputPrice = new JTextField(15);
-        deviceType = new JLabel("Type:");
-        
-        selectType1 = new JRadioButton("Smartphone", true);
-        selectType2 = new JRadioButton("Tablet");
-        typeGroup = new ButtonGroup();
-        typeGroup.add(selectType1);
-        typeGroup.add(selectType2);
 
-        createFormPanel();
+        crtBtnGroup();
+        crtFormPanel();
+        crtMainPanel();
 
-        mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
-        mainPanel.add(formPanel, BorderLayout.NORTH);
-        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
-
-        setContentPane(mainPanel);
     }
 }

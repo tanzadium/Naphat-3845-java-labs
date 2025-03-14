@@ -10,10 +10,8 @@ import phadungkit.naphat.lab9.MobileDeviceV7;
  * button events. It adds functionality for creating message dialogs and
  * handling form actions.
  *
- * Author: Naphat Phadungkit 
- * Student ID: 673040384-5 
- * Sec: 1 
- * Last updated date: 17 February 2025
+ * Author: Naphat Phadungkit Student ID: 673040384-5 Sec: 1 Last updated date:
+ * 17 February 2025
  */
 public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener {
 
@@ -49,9 +47,9 @@ public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener {
     public void crtMessageDialog() {
         vendorSelectedMessage = String.join(", ", vendorList.getSelectedValuesList());
 
-        okMessage = "Device Name: " + inputName.getText() + "\nBrand: " + inputBrand.getText()
-                + "\nPrice: " + inputPrice.getText() + "\nType: " + selectTypeSmartPhone.getText()
-                + "\nOperating System: " + osBox.getSelectedItem() + "\nFeatures: " + inputFeature.getText()
+        okMessage = "Device Name: " + deviceNameTextField.getText() + "\nBrand: " + deviceBrandTextField.getText()
+                + "\nPrice: " + devicePriceTextField.getText() + "\nType: " + selectTypeSmartPhone.getText()
+                + "\nOperating System: " + osBox.getSelectedItem() + "\nFeatures: " + deviceFeatureTextArea.getText()
                 + "\nAvailable at: " + vendorSelectedMessage + "\nRating: " + deviceRate.getValue();
     }
 
@@ -76,7 +74,7 @@ public class MobileDeviceV8 extends MobileDeviceV7 implements ActionListener {
             for (JTextField textFieldCleared : textFields) {
                 textFieldCleared.setText("");
             }
-            inputFeature.setText("");
+            deviceFeatureTextArea.setText("");
             selectTypeSmartPhone.setSelected(true);
             osBox.setSelectedIndex(0);
             vendorList.clearSelection();

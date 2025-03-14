@@ -70,8 +70,10 @@ public class MobileDeviceV5 extends MobileDeviceV4 {
         initComponents();
         deviceRate = new JSlider(JSlider.HORIZONTAL, minRate, maxRate, initialRate);
         deviceRate.setMajorTickSpacing(1);
+        //deviceRate.setMinorTickSpacing(1);
         deviceRate.setPaintTicks(true);
         deviceRate.setPaintLabels(true);
+        deviceRate.setSnapToTicks(true);
     }
 
     // Creates a panel for displaying device vendor options.

@@ -1,5 +1,7 @@
 package phadungkit.naphat.lab7;
 
+import java.io.Serializable;
+
 /**
  * This abstract class serves as the base class for all mobile devices.
  * It defines common properties like color and price, and abstract methods
@@ -10,9 +12,10 @@ package phadungkit.naphat.lab7;
  * Sec: 1
  * Last updated date: 27 January 2025
  */
-public abstract class MobileDevice {
+public abstract class MobileDevice implements Serializable{
     protected String color;
     protected double price;
+    private static final long serialVersionUID = 1L;
 
     //Gets the color of the device.
     public String getColor() {

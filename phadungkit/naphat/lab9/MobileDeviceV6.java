@@ -4,16 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * This class extends MobileDeviceV5 to enhance the visual styling of the mobile device form.
- * It introduces customization for text fields, labels, vendor list, and buttons,
- * providing a more refined and visually appealing user interface.
- * 
- * Author: Naphat Phadungkit
- * Student ID: 673040384-5
- * Sec: 1
- * Last updated date: 9 February 2025
+ * This class extends MobileDeviceV5 to enhance the visual styling of the mobile
+ * device form. It introduces customization for text fields, labels, vendor
+ * list, and buttons, providing a more refined and visually appealing user
+ * interface.
+ *
+ * Author: Naphat Phadungkit Student ID: 673040384-5 Sec: 1 Last updated date: 9
+ * February 2025
  */
-
 public class MobileDeviceV6 extends MobileDeviceV5 {
 
     protected Color textFieldBgColor, textFieldFontColor, textLabelFontColor;
@@ -50,17 +48,17 @@ public class MobileDeviceV6 extends MobileDeviceV5 {
 
     // Customizes the appearance of text fields with specific background and font colors.
     public void customizeText() {
-        textFields = new JTextField[]{inputName, inputBrand, inputPrice};
+        textFields = new JTextField[]{deviceNameTextField, deviceBrandTextField, devicePriceTextField};
         for (JTextField field : textFields) {
             field.setBackground(LIGHT_GRAY);
             field.setForeground(DARK_GRAY);
         }
 
-        inputFeature.setBackground(LIGHT_YELLOW);
-        inputFeature.setForeground(DARK_GRAY);
-        inputFeature.setFont(inputFeature.getFont().deriveFont(Font.ITALIC));
-        inputFeature.setLineWrap(true);
-        inputFeature.setWrapStyleWord(true);
+        deviceFeatureTextArea.setBackground(LIGHT_YELLOW);
+        deviceFeatureTextArea.setForeground(DARK_GRAY);
+        deviceFeatureTextArea.setFont(deviceFeatureTextArea.getFont().deriveFont(Font.ITALIC));
+        deviceFeatureTextArea.setLineWrap(true);
+        deviceFeatureTextArea.setWrapStyleWord(true);
     }
 
     // Applies custom font and color styling to labels.
@@ -68,7 +66,7 @@ public class MobileDeviceV6 extends MobileDeviceV5 {
         labelFont = new Font("Arial", Font.BOLD, 14);
 
         labels = new JLabel[]{
-            deviceName, deviceBrand, devicePrice, deviceType,
+            deviceNameLabel, deviceBrandLabel, devicePriceLabel, deviceTypeLabel,
             deviceOS, deviceFeature, deviceVendorLabel, deviceRateLabel
         };
 
